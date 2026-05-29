@@ -1,107 +1,286 @@
 <!DOCTYPE html>
 <html lang="es">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="Catálogo moderno de juegos de mesa de Ludoteca Roberto.">
-      <title>Ludoteca Roberto | Catálogo de Juegos de Mesa</title>
-      <link rel="stylesheet" href="css/styles.css">
-   </head>
-   <body id="top">
-      <header class="site-header">
-         <div class="header-content">
-            <a class="logo" href="index.html" aria-label="Ir al inicio de Ludoteca Roberto">
-            <span class="logo-icon">🎲</span><span>Ludoteca Roberto</span></a>
-            <nav class="nav-principal" aria-label="Navegación principal">
-               <a class="activo" href="index.html">Inicio</a>
-               <a href="categorias/familiares.html">Familiares</a>
-               <a href="categorias/para-dos.html">Para dos</a>
-               <a href="categorias/misterio.html">Misterio</a>
-               <a href="categorias/cooperativos.html">Cooperativos</a>
-            </nav>
-         </div>
-      </header>
-      <main>
-         <section class="hero">
-            <div class="contenedor hero-grid">
-               <div>
-                  <span class="etiqueta">Catálogo 2026 · Juegos de Mesa</span>
-                  <h1>Juega mejor, <span class="texto-destacado">elige con estilo.</span></h1>
-                  <p class="bajada">Somos una PYME dedicada a promocionar juegos de mesa para distintos tipos de jugadores. Explora nuestras categorías, revisa fichas con precios y descubre si tu próximo juego tiene descuento.</p>
-                  <div class="acciones"><a class="boton" href="#categorias">Explorar categorías</a>
-                     <a class="boton-secundario" href="categorias/familiares.html">Ver juegos familiares</a>
-                  </div>
-               </div>
-               <aside class="hero-card" aria-label="Resumen del catálogo">
-                  <img src="img/categorias/familiares.svg" alt="Portada visual del catálogo de juegos familiares">
-                  <div class="hero-stats">
-                     <div class="stat"><strong>4</strong><span>Categorías</span></div>
-                     <div class="stat"><strong>12</strong><span>Juegos</span>
-                     </div>
-                     <div class="stat"><strong>CSS3</strong><span>Animado</span></div>
-                  </div>
-               </aside>
-            </div>
-         </section>
-         <section class="seccion" id="categorias">
-            <div class="contenedor">
-               <div class="seccion-encabezado">
-                  <div>
-                     <span class="etiqueta">Categorías disponibles</span>
-                     <h2>Encuentra una experiencia para cada mesa.</h2>
-                  </div>
-                  <p>Cada categoría incluye un hipervínculo, una imagen de referencia y fichas de juegos con descripción, precio y estado de descuento.</p>
-               </div>
-               <div class="categorias-grid">
-                  <article class="categoria-card">
-                     <a href="categorias/familiares.html" aria-label="Ver juegos de la categoría Familiares">
-                        <img src="img/categorias/familiares.svg" alt="Imagen de referencia para la categoría Familiares">
-                        <div class="categoria-card-content">
-                           <h3>Familiares</h3>
-                           <p>Opciones entretenidas, fáciles de aprender y perfectas para una tarde en familia.</p>
-                           <span class="link-card">Ver catálogo</span>
-                        </div>
-                     </a>
-                  </article>
-                  <article class="categoria-card">
-                     <a href="categorias/para-dos.html" aria-label="Ver juegos de la categoría Para dos">
-                        <img src="img/categorias/para-dos.svg" alt="Imagen de referencia para la categoría Para dos">
-                        <div class="categoria-card-content">
-                           <h3>Para dos</h3>
-                           <p>Partidas pensadas para dos personas, con tensión, táctica y decisiones ajustadas.</p>
-                           <span class="link-card">Ver catálogo</span>
-                        </div>
-                     </a>
-                  </article>
-                  <article class="categoria-card">
-                     <a href="categorias/misterio.html" aria-label="Ver juegos de la categoría Misterio">
-                        <img src="img/categorias/misterio.svg" alt="Imagen de referencia para la categoría Misterio">
-                        <div class="categoria-card-content">
-                           <h3>Misterio</h3>
-                           <p>Historias para investigar, resolver enigmas y descubrir la verdad detrás de cada caso.</p>
-                           <span class="link-card">Ver catálogo</span>
-                        </div>
-                     </a>
-                  </article>
-                  <article class="categoria-card">
-                     <a href="categorias/cooperativos.html" aria-label="Ver juegos de la categoría Cooperativos">
-                        <img src="img/categorias/cooperativos.svg" alt="Imagen de referencia para la categoría Cooperativos">
-                        <div class="categoria-card-content">
-                           <h3>Cooperativos</h3>
-                           <p>Experiencias donde el equipo comparte información, toma decisiones y alcanza un objetivo común.</p>
-                           <span class="link-card">Ver catálogo</span>
-                        </div>
-                     </a>
-                  </article>
-               </div>
-            </div>
-         </section>
-      </main>
-      <footer class="footer">
-         <div class="contenedor footer-content">
-            <p>&copy; 2026 Ludoteca Roberto. Sitio desarrollado para asignatura Desarrollo Fullstack 2</p>
-            <a href="#top">Volver arriba</a>
-         </div>
-      </footer>
-   </body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Cat&aacute;logo moderno de juegos de mesa de Ludoteca Roberto." name="description"/>
+  <title>
+   Ludoteca Roberto | Cat&aacute;logo de Juegos de Mesa
+  </title>
+  <link href="css/styles.css" rel="stylesheet"/>
+ </head>
+ <body id="top">
+  <header class="site-header">
+   <div class="header-content">
+    <a aria-label="Ir al inicio de Ludoteca Roberto" class="logo" href="index.html">
+     <span >
+      <img src="/img/logo.png" alt="ludoteca Roberto">
+     </span>
+     <span>
+      Ludoteca Roberto
+     </span>
+    </a>
+    <nav aria-label="Navegaci&oacute;n principal" class="nav-principal">
+     <a class="activo" href="index.html">
+      Inicio
+     </a>
+     <a href="categorias/familiares.html">
+      Familiares
+     </a>
+     <a href="categorias/para-dos.html">
+      Para dos
+     </a>
+     <a href="categorias/misterio.html">
+      Misterio
+     </a>
+     <a href="categorias/cooperativos.html">
+      Cooperativos
+     </a>
+     <a href="cuentas/registro.html">
+      Registrate
+     </a>
+     <a class="nav-login" href="#login">
+      Iniciar sesi&oacute;n
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main>
+   <section class="hero">
+    <div class="contenedor hero-grid">
+     <div>
+      <span class="etiqueta">
+       Cat&aacute;logo 2026 &middot; Juegos de Mesa
+      </span>
+      <h1>
+       Juega mejor,
+       <span class="texto-destacado">
+        elige con estilo.
+       </span>
+      </h1>
+      <p class="bajada">
+       Somos una PYME dedicada a promocionar juegos de mesa para distintos tipos de jugadores. Explora nuestras categor&iacute;as, revisa fichas con precios y descubre si tu pr&oacute;ximo juego tiene descuento.
+      </p>
+      <div class="acciones">
+       <a class="boton" href="#categorias">
+        Explorar categor&iacute;as
+       </a>
+       <a class="boton-secundario" href="categorias/familiares.html">
+        Ver juegos familiares
+       </a>
+      </div>
+     </div>
+     <aside aria-label="Resumen del cat&aacute;logo" class="hero-card">
+      <img alt="Portada visual del cat&aacute;logo de juegos familiares" src="img/categorias/familiares.svg"/>
+      <div class="hero-stats">
+       <div class="stat">
+        <strong>
+         4
+        </strong>
+        <span>
+         Categor&iacute;as
+        </span>
+       </div>
+       <div class="stat">
+        <strong>
+         12
+        </strong>
+        <span>
+         Juegos
+        </span>
+       </div>
+       <div class="stat">
+        <strong>
+         CSS3
+        </strong>
+        <span>
+         Animado
+        </span>
+       </div>
+      </div>
+     </aside>
+    </div>
+   </section>
+   <section class="seccion" id="categorias">
+    <div class="contenedor">
+     <div class="seccion-encabezado">
+      <div>
+       <span class="etiqueta">
+        Categor&iacute;as disponibles
+       </span>
+       <h2>
+        Encuentra una experiencia para cada mesa.
+       </h2>
+      </div>
+      <p>
+       Cada categor&iacute;a incluye un hiperv&iacute;nculo, una imagen de referencia y fichas de juegos con descripci&oacute;n, precio y estado de descuento.
+      </p>
+     </div>
+     <div class="categorias-grid">
+      <article class="categoria-card">
+       <a aria-label="Ver juegos de la categor&iacute;a Familiares" href="categorias/familiares.html">
+        <img alt="Imagen de referencia para la categor&iacute;a Familiares" src="img/categorias/familiares.svg"/>
+        <div class="categoria-card-content">
+         <h3>
+          Familiares
+         </h3>
+         <p>
+          Opciones entretenidas, f&aacute;ciles de aprender y perfectas para una tarde en familia.
+         </p>
+         <span class="link-card">
+          Ver cat&aacute;logo
+         </span>
+        </div>
+       </a>
+      </article>
+      <article class="categoria-card">
+       <a aria-label="Ver juegos de la categor&iacute;a Para dos" href="categorias/para-dos.html">
+        <img alt="Imagen de referencia para la categor&iacute;a Para dos" src="img/categorias/para-dos.svg"/>
+        <div class="categoria-card-content">
+         <h3>
+          Para dos
+         </h3>
+         <p>
+          Partidas pensadas para dos personas, con tensi&oacute;n, t&aacute;ctica y decisiones ajustadas.
+         </p>
+         <span class="link-card">
+          Ver cat&aacute;logo
+         </span>
+        </div>
+       </a>
+      </article>
+      <article class="categoria-card">
+       <a aria-label="Ver juegos de la categor&iacute;a Misterio" href="categorias/misterio.html">
+        <img alt="Imagen de referencia para la categor&iacute;a Misterio" src="img/categorias/misterio.svg"/>
+        <div class="categoria-card-content">
+         <h3>
+          Misterio
+         </h3>
+         <p>
+          Historias para investigar, resolver enigmas y descubrir la verdad detr&aacute;s de cada caso.
+         </p>
+         <span class="link-card">
+          Ver cat&aacute;logo
+         </span>
+        </div>
+       </a>
+      </article>
+      <article class="categoria-card">
+       <a aria-label="Ver juegos de la categor&iacute;a Cooperativos" href="categorias/cooperativos.html">
+        <img alt="Imagen de referencia para la categor&iacute;a Cooperativos" src="img/categorias/cooperativos.svg"/>
+        <div class="categoria-card-content">
+         <h3>
+          Cooperativos
+         </h3>
+         <p>
+          Experiencias donde el equipo comparte informaci&oacute;n, toma decisiones y alcanza un objetivo com&uacute;n.
+         </p>
+         <span class="link-card">
+          Ver cat&aacute;logo
+         </span>
+        </div>
+       </a>
+      </article>
+       </div>
+   </section>
+  
+    <div class="contenedor">
+     <article class="terminos-card">
+      <span class="etiqueta">
+       T&eacute;rminos y condiciones
+      </span>
+      <h2>
+       Condiciones de uso de Ludoteca Roberto.
+      </h2>
+      <p>
+       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae velit sed ipsum facilisis gravida. Donec dignissim, massa non tempor posuere, lorem sem viverra mauris, vitae luctus mi nibh non neque.
+      </p>
+      <p>
+       Morbi sed justo sed magna facilisis consequat. Suspendisse potenti. Curabitur porttitor, neque at fermentum pretium, lorem sapien malesuada urna, vitae faucibus sem lectus sed lectus.
+      </p>
+      <p>
+       Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent euismod, lectus non ultricies cursus, justo libero luctus sem, sed placerat lacus risus vitae mi.
+      </p>
+     </article>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="contenedor footer-content">
+    <p>
+     &copy; 2026 Ludoteca Roberto. Sitio desarrollado para la asignatura Desarrollo Fullstack II.
+    </p>
+    <a href="#top"> 
+     Volver arriba
+    </a>
+   </div>
+  </footer>
+  <section aria-label="Inicio de sesi&oacute;n" class="modal-login" id="login">
+   <a aria-label="Cerrar ventana de inicio de sesi&oacute;n" class="modal-fondo" href="#top">
+   </a>
+   <div aria-labelledby="login-titulo" aria-modal="true" class="login-caja" role="dialog">
+    <a aria-label="Cerrar inicio de sesi&oacute;n" class="modal-cerrar" href="#top">
+     &times;
+    </a>
+    <span class="etiqueta">
+     Acceso clientes
+    </span>
+    <h2 id="login-titulo">
+     Iniciar sesi&oacute;n
+    </h2>
+    <p class="login-texto">
+     Ingresa con tu nombre de usuario y contrase&ntilde;a para continuar.
+    </p>
+    <form class="login-form" id="formLogin">
+     <label class="campo">
+      <span>
+       Nombre de usuario
+      </span>
+      <input autocomplete="username" minlength="4" name="loginUsuario" placeholder="Tu usuario" required="" type="text"/>
+      <small>
+       Ingresa tu usuario registrado.
+      </small>
+     </label>
+     <label class="campo">
+      <span>
+       Contrase&ntilde;a
+      </span>
+      <input autocomplete="current-password" minlength="8" name="loginClave" placeholder="Tu contrase&ntilde;a" required="" type="password"/>
+      <small>
+       Ingresa una contrase&ntilde;a v&aacute;lida.
+      </small>
+     </label>
+     <div class="login-opciones">
+      <label>
+       <input name="recordar" type="checkbox"/>
+       Recordarme
+      </label>
+      <details>
+       <summary>
+        Recuperar contrase&ntilde;a
+       </summary>
+       <p>
+        Escribe tu correo para simular la recuperaci&oacute;n de acceso.
+       </p>
+       <input name="correoRecuperacion" placeholder="correo@ejemplo.cl" type="email"/>
+      </details>
+     </div>
+     <p aria-live="polite" class="mensaje-formulario" id="mensajeLogin">
+     </p>
+     <button class="boton" type="submit">
+      Entrar
+     </button>
+    </form>
+    <p class="modal-mini">
+     &iquest;A&uacute;n no tienes cuenta?
+     <a href="#registro">
+      Reg&iacute;strate aqu&iacute;
+     </a>
+     .
+    </p>
+   </div>
+  </section>
+  <script src="js/app.js">
+  </script>
+ </body>
 </html>

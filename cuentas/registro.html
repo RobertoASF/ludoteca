@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Registro de clientes para Ludoteca Roberto.">
+  <title>Registro | Ludoteca Roberto</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body id="top" class="pagina-registro">
+  <header class="site-header">
+    <div class="header-content">
+      <a class="logo" href="../index.html" aria-label="Ir al inicio de Ludoteca Roberto">
+        <span class="logo-icon">🎲</span>
+        <span>Ludoteca Roberto</span>
+      </a>
+
+      <nav class="nav-principal" aria-label="Navegación principal">
+        <a href="../index.html">Inicio</a>
+        <a href="../categorias/familiares.html">Familiares</a>
+        <a href="../categorias/para-dos.html">Para dos</a>
+        <a href="../categorias/misterio.html">Misterio</a>
+        <a href="../categorias/cooperativos.html">Cooperativos</a>
+        <a class="activo" href="../registro.html">Registro</a>
+        <a class="nav-login" href="#login">Iniciar sesión</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-registro">
+      <div class="contenedor hero-grid">
+        <div>
+          <div class="miga">
+            <a href="../index.html">Inicio</a>
+            <span>/</span>
+            <span>Registro</span>
+          </div>
+
+          <span class="etiqueta">Cuenta de cliente</span>
+          <h1>Regístrate en <span class="texto-destacado">Ludoteca Roberto.</span></h1>
+          <p class="bajada">
+            Crea tu cuenta para comprar juegos de mesa, guardar tus datos de despacho y acceder más adelante a beneficios para clientes registrados.
+          </p>
+
+          <div class="acciones">
+            <a class="boton" href="#formulario-registro">Completar registro</a>
+            <a class="boton-secundario" href="#login">Ya tengo cuenta</a>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section class="seccion" id="formulario-registro">
+      <div class="contenedor registro-layout">
+        <article class="form-card">
+          <div class="seccion-encabezado registro-encabezado">
+            <div>
+              <span class="etiqueta">Formulario de registro</span>
+              <h2>Formulario de Registro.</h2>
+            </div>
+          </div>
+
+          <form class="registro-form" id="formRegistro" action="#" method="post">
+            <div class="form-grid">
+             
+
+             <label class="campo">
+                <span>Nombres</span>
+                <input type="text" name="nombres" placeholder="Ej: Roberto" autocomplete="nombres" required>
+                <small>Ingresa tu nombre.</small>
+              </label>
+              <label class="campo">
+                <span>Apellidos</span>
+                <input type="text" name="apellidos" placeholder="Ej: Sanchez Franco" autocomplete="apellidos" required>
+                <small>Ingresa tus apellidos.</small>
+              </label>
+              <label class="campo">
+                <span>Nombre de usuario</span>
+                <input type="text" name="usuario" placeholder="Ej: usuario1" autocomplete="username" required minlength="4" maxlength="20" pattern="[A-Za-z0-9_]{4,20}">
+                <small>Usa entre 4 y 20 caracteres, letras, números o guion bajo.</small>
+              </label>
+              <label class="campo">
+                <span>Correo electrónico</span>
+                <input type="email" name="correo" placeholder="correo@ejemplo.cl" autocomplete="email" required>
+                <small>Debe tener un formato de correo válido.</small>
+              </label>
+
+              <label class="campo">
+                <span>Clave de ingreso</span>
+                <input id="claveRegistro" type="password" name="clave" placeholder="Mínimo 8 caracteres" autocomplete="new-password" required minlength="8">
+                <small>La clave debe tener al menos 8 caracteres.</small>
+              </label>
+
+              <label class="campo">
+                <span>Repetir contraseña</span>
+                <input id="repetirClaveRegistro" type="password" name="repetirClave" placeholder="Repite tu clave" autocomplete="new-password" required minlength="8">
+                <small>Debe coincidir con la clave ingresada.</small>
+              </label>
+
+              <label class="campo">
+                <span>Fecha de nacimiento</span>
+                <input type="date" name="fechaNacimiento" required>
+                <small>Selecciona tu fecha de nacimiento.</small>
+              </label>
+
+              <label class="campo">
+                <span>Calle</span>
+                <input type="text" name="calle" placeholder="Ej: Av. Providencia" autocomplete="address-line1" required minlength="3">
+                <small>Ingresa el nombre de la calle.</small>
+              </label>
+
+              <label class="campo">
+                <span>Número</span>
+                <input type="text" name="numero" placeholder="Ej: 1234" autocomplete="address-line2" required pattern="[0-9]{1,6}[A-Za-z]?">
+                <small>Solo números y, opcionalmente, una letra.</small>
+              </label>
+
+              <label class="campo">
+                <span>Número de depto. o casa</span>
+                <input type="text" name="deptoCasa" placeholder="Ej: Depto 404 / Casa B" required minlength="1">
+                <small>Indica departamento, casa, block o referencia.</small>
+              </label>
+
+              <label class="campo">
+                <span>Comuna</span>
+                <input type="text" name="comuna" placeholder="Ej: Santiago" autocomplete="address-level3" required minlength="3" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]{3,}">
+                <small>Ingresa la comuna de despacho.</small>
+              </label>
+
+              <label class="campo">
+                <span>Región</span>
+                <select name="region" autocomplete="address-level1" required>
+                  <option value="">Selecciona una región</option>
+                  <option>Arica y Parinacota</option>
+                  <option>Tarapacá</option>
+                  <option>Antofagasta</option>
+                  <option>Atacama</option>
+                  <option>Coquimbo</option>
+                  <option>Valparaíso</option>
+                  <option>Metropolitana de Santiago</option>
+                  <option>O'Higgins</option>
+                  <option>Maule</option>
+                  <option>Ñuble</option>
+                  <option>Biobío</option>
+                  <option>La Araucanía</option>
+                  <option>Los Ríos</option>
+                  <option>Los Lagos</option>
+                  <option>Aysén</option>
+                  <option>Magallanes</option>
+                </select>
+                <small>Selecciona la región correspondiente.</small>
+              </label>
+            </div>
+
+            <label class="campo-check">
+              <input type="checkbox" name="aceptaTerminos" required>
+              <span>Acepto los términos y condiciones de Ludoteca Roberto.</span>
+            </label>
+
+            <p aria-live="polite" class="mensaje-formulario" id="mensajeRegistro"></p>
+
+            <div class="acciones acciones-formulario">
+              <button class="boton" type="submit">Crear cuenta</button>
+              <button class="boton-secundario" type="reset">Limpiar formulario</button>
+            </div>
+          </form>
+        </article>
+
+        <aside class="terminos-card" id="terminos">
+          <span class="etiqueta">Términos y condiciones</span>
+          <h2>Condiciones de uso.</h2>
+
+          <div class="terminos-texto">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non velit vitae ipsum tempor dignissim. Sed posuere, ligula non commodo tincidunt, lorem arcu luctus massa, vitae consequat justo arcu sed neque.
+            </p>
+            <p>
+              Praesent finibus, neque at dictum convallis, mi tortor luctus mauris, sed malesuada erat sapien sit amet purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+            </p>
+            <p>
+              Nulla facilisi. Curabitur posuere est nec justo pulvinar, a hendrerit urna faucibus. Aliquam erat volutpat. Donec elementum risus nec neque suscipit, quis dignissim massa volutpat.
+            </p>
+            <p>
+              Morbi gravida lorem at lectus tristique, vitae bibendum ipsum elementum. Duis feugiat, augue et luctus tempor, massa tellus bibendum justo, sed tincidunt justo risus nec dolor.
+            </p>
+          </div>
+
+          <a class="link-card" href="#formulario-registro">Volver al formulario</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer-content">
+      <p>&copy; 2026 Ludoteca Roberto. Sitio desarrollado para la asignatura Desarrollo Fullstack II.</p>
+      <a href="#top">Volver arriba</a>
+    </div>
+  </footer>
+
+  <section aria-label="Inicio de sesión" class="modal-login" id="login">
+    <a aria-label="Cerrar ventana de inicio de sesión" class="modal-fondo" href="#top"></a>
+
+    <div aria-labelledby="login-titulo" aria-modal="true" class="login-caja" role="dialog">
+      <a aria-label="Cerrar inicio de sesión" class="modal-cerrar" href="#top">&times;</a>
+      <span class="etiqueta">Acceso clientes</span>
+      <h2 id="login-titulo">Iniciar sesión</h2>
+      <p class="login-texto">Ingresa con tu nombre de usuario y contraseña para continuar.</p>
+
+      <form class="login-form" id="formLogin" action="#" method="post">
+        <label class="campo">
+          <span>Nombre de usuario</span>
+          <input type="text" name="loginUsuario" placeholder="Tu usuario" autocomplete="username" required minlength="4">
+          <small>Ingresa tu usuario registrado.</small>
+        </label>
+
+        <label class="campo">
+          <span>Contraseña</span>
+          <input type="password" name="loginClave" placeholder="Tu contraseña" autocomplete="current-password" required minlength="8">
+          <small>Ingresa una contraseña válida.</small>
+        </label>
+
+        <div class="login-opciones">
+          <label>
+            <input type="checkbox" name="recordar">
+            Recordarme
+          </label>
+
+          <details>
+            <summary>Recuperar contraseña</summary>
+            <p>Escribe tu correo para simular la recuperación de acceso.</p>
+            <input type="email" name="correoRecuperacion" placeholder="correo@ejemplo.cl">
+          </details>
+        </div>
+
+        <p aria-live="polite" class="mensaje-formulario" id="mensajeLogin"></p>
+        <button class="boton" type="submit">Entrar</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
