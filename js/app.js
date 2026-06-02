@@ -83,24 +83,107 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const formLogin = document.getElementById("formLogin");
-  const mensajeLogin = document.getElementById("mensajeLogin");
+  // const formLogin = document.getElementById("formLogin");
+  // const mensajeLogin = document.getElementById("mensajeLogin");
 
-  if (formLogin && mensajeLogin) {
-    formLogin.addEventListener("submit", function (evento) {
+  // if (formLogin && mensajeLogin) {
+  //   formLogin.addEventListener("submit", function (evento) {
+  //     evento.preventDefault();
+  
+  //     formLogin.querySelectorAll(".campo").forEach(function (campo) {
+  //       campo.classList.add("tocado");
+  //     });
+  
+  //     if (formLogin.checkValidity()) {
+  //       mensajeLogin.textContent = "Inicio de sesión OK.";
+  //       mensajeLogin.className = "mensaje-formulario mensaje-ok";
+  //     } else {
+  //       mensajeLogin.textContent = "Ingresa un usuario y una contraseña válidos.";
+  //       mensajeLogin.className = "mensaje-formulario mensaje-error";
+  //     }
+  //   });
+  // }
+  const usuariosPrueba = [
+    {
+      usuario: "roberto",
+      clave: "Ludoteca2026"
+    },
+    {
+      usuario: "cliente",
+      clave: "Cliente123"
+    },
+    {
+      usuario: "admin",
+      clave: "Admin12345"
+    }
+  ];
+  
+  const $formLogin = $("#formLogin");
+  const $mensajeLogin = $("#mensajeLogin");
+  
+  if ($formLogin.length && $mensajeLogin.length) {
+    if (!$formLogin.find(".login-demo").length) {
+      $("<small>")
+        .addClass("login-demo")
+        .text("Usuarios de prueba: roberto / Ludoteca2026, cliente / Cliente123, admin / Admin12345.")
+        .css({
+          color: "var(--muted)",
+          lineHeight: "1.45"
+        })
+        .insertBefore($mensajeLogin);
+    }
+  
+    $formLogin.on("submit", function (evento) {
       evento.preventDefault();
-
-      formLogin.querySelectorAll(".campo").forEach(function (campo) {
-        campo.classList.add("tocado");
+  
+      const $usuario = $formLogin.find("[name='loginUsuario']");
+      const $clave = $formLogin.find("[name='loginClave']");
+  
+      const usuario = $.trim($usuario.val());
+      const clave = $.trim($clave.val());
+  
+      $usuario[0].setCustomValidity("");
+      $clave[0].setCustomValidity("");
+  
+      $formLogin.find(".campo").addClass("tocado");
+  
+      if (!this.checkValidity()) {
+        $mensajeLogin
+          .text("Ingresa un usuario y una contraseña válidos.")
+          .removeClass("mensaje-ok")
+          .addClass("mensaje-error");
+  
+        return;
+      }
+  
+      const usuarioEncontrado = usuariosPrueba.find(function (item) {
+        return item.usuario.toLowerCase() === usuario.toLowerCase() && item.clave === clave;
       });
-
-      if (formLogin.checkValidity()) {
-        mensajeLogin.textContent = "Inicio de sesión OK.";
-        mensajeLogin.className = "mensaje-formulario mensaje-ok";
+  
+      if (usuarioEncontrado) {
+        $mensajeLogin
+          .text("Inicio de sesión correcto. Bienvenido/a, " + usuarioEncontrado.usuario + ".")
+          .removeClass("mensaje-error")
+          .addClass("mensaje-ok");
+  
+        if ($formLogin.find("[name='recordar']").is(":checked")) {
+          localStorage.setItem("ludotecaUsuario", usuarioEncontrado.usuario);
+        } else {
+          localStorage.removeItem("ludotecaUsuario");
+        }
+  
+        $formLogin.find("button[type='submit']").text("Acceso validado");
       } else {
-        mensajeLogin.textContent = "Ingresa un usuario y una contraseña válidos.";
-        mensajeLogin.className = "mensaje-formulario mensaje-error";
+        $clave[0].setCustomValidity("Usuario o contraseña incorrectos");
+  
+        $mensajeLogin
+          .text("Usuario o contraseña incorrectos. Usa los datos de prueba indicados.")
+          .removeClass("mensaje-ok")
+          .addClass("mensaje-error");
+  
+        $clave.val("").trigger("focus");
       }
     });
   }
+
 });
