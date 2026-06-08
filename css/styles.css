@@ -485,7 +485,7 @@ h3 {
   padding: .5rem .75rem;
   border: 1px solid rgba(255, 255, 255, .18);
   border-radius: 999px;
-  color: inherit;
+  color: #dffaff;
   background: rgba(7, 17, 31, .78);
   backdrop-filter: blur(10px);
   font-size: .88rem;
@@ -504,6 +504,7 @@ h3 {
   font-size: 1.55rem;
   font-weight: 950;
   letter-spacing: -.04em;
+  color: #dffaff;
 }
 
 .descuento,

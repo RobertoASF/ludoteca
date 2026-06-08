@@ -1,280 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="Cat&aacute;logo moderno de juegos de mesa de Ludoteca Roberto." name="description"/>
-  <title>
-   Ludoteca Roberto | Cat&aacute;logo de Juegos de Mesa
-  </title>
-  <link href="css/styles.css" rel="stylesheet"/>
- </head>
- <body id="top">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo moderno de juegos de mesa de Ludoteca Roberto.">
+  <title>Ludoteca Roberto | Catálogo de Juegos de Mesa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body id="top">
   <header class="site-header">
-   <div class="header-content">
-    <a class="logo" href="../index.html" aria-label="Ir al inicio de Ludoteca Roberto"><span class="logo-icon">🎲</span><span>Ludoteca Roberto</span></a>
-     <span >
-     </span>
-    </a>
-    <nav aria-label="Navegaci&oacute;n principal" class="nav-principal">
-     <a class="activo" href="index.html">Inicio</a>
-     <a href="categorias/familiares.html">Familiares</a>
-     <a href="categorias/para-dos.html">Para dos</a>
-     <a href="categorias/misterio.html">Misterio</a>
-     <a href="categorias/cooperativos.html">Cooperativos</a>
-     <a href="cuentas/registro.html">Regístrate</a>
-     <a class="nav-login" href="#login">Inicia sesi&oacute;n</a>
+    <nav class="navbar navbar-expand-xl navbar-dark" aria-label="Navegación principal">
+      <div class="header-content">
+        <a class="logo navbar-brand" href="index.html" aria-label="Ir al inicio de Ludoteca Roberto">
+          <span class="logo-icon">🎲</span>
+          <span>Ludoteca Roberto</span>
+        </a>
+        <button class="navbar-toggler nav-toggle-ludoteca" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal" aria-controls="navPrincipal" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navPrincipal">
+          <div class="nav-principal navbar-nav ms-auto">
+            <a class="nav-link activo" href="index.html">Inicio</a>
+            <a class="nav-link" href="categorias/familiares.html">Familiares</a>
+            <a class="nav-link" href="categorias/para-dos.html">Para dos</a>
+            <a class="nav-link" href="categorias/misterio.html">Misterio</a>
+            <a class="nav-link" href="categorias/cooperativos.html">Cooperativos</a>
+            <a class="nav-link" href="cuentas/registro.html" data-guest-only>Regístrate</a>
+            <a class="nav-link nav-login" href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-guest-only>Inicia sesión</a>
+            <a class="nav-link d-none" href="cuentas/perfil.html" data-auth-only>Mi perfil</a>
+            <a class="nav-link d-none" href="admin/dashboard.html" data-admin-only>Dashboard</a>
+            <a class="nav-link d-none nav-saludo" href="cuentas/perfil.html" data-auth-only data-user-label></a>
+            <a class="nav-link d-none nav-logout" href="#" data-auth-only data-logout>Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
     </nav>
-   </div>
   </header>
   <main>
-   <section class="hero">
-    <div class="contenedor hero-grid">
-     <div>
-      <span class="etiqueta">
-       Cat&aacute;logo 2026 &middot; Juegos de Mesa
-      </span>
-      <h1>
-       Juega mejor,
-       <span class="texto-destacado">
-        elige con estilo.
-       </span>
-      </h1>
-      <p class="bajada">
-       Somos una PYME dedicada a promocionar juegos de mesa para distintos tipos de jugadores. Explora nuestras categor&iacute;as, revisa fichas con precios y descubre si tu pr&oacute;ximo juego tiene descuento.
-      </p>
-      <div class="acciones">
-       <a class="boton" href="#categorias">
-        Explorar categor&iacute;as
-       </a>
-       <a class="boton-secundario" href="categorias/familiares.html">
-        Ver juegos familiares
-       </a>
+    <section class="hero">
+      <div class="contenedor row align-items-center gy-4">
+        <div class="col-lg-7">
+          <span class="etiqueta">Catálogo 2026 · Juegos de Mesa</span>
+          <h1>Juega mejor, <span class="texto-destacado">elige con estilo.</span></h1>
+          <p class="bajada">Somos una PYME dedicada a promocionar juegos de mesa para distintos tipos de jugadores. Explora nuestras categorías, revisa fichas con precios y descubre si tu próximo juego tiene descuento.</p>
+          <div class="acciones"><a class="boton" href="#categorias">Explorar categorías</a>
+          <a class="boton-secundario" href="cuentas/registro.html">Regístrate</a></div>
+        </div>
+        <aside aria-label="Resumen del catálogo" class="hero-card col-lg-5">
+          <img alt="Logo de Ludoteca Roberto" src="img/logo.png">
+          <div class="hero-stats">
+            <div class="stat"><strong>4</strong><span>Categorías</span></div>
+            <div class="stat"><strong>12</strong><span>Juegos</span></div>
+            <div class="stat"><strong>BS5</strong><span>Responsivo</span></div>
+          </div>
+        </aside>
       </div>
-     </div>
-     <aside aria-label="Resumen del cat&aacute;logo" class="hero-card">
-      <img alt="Portada visual del cat&aacute;logo de juegos familiares" src="img/logo.png"/>
-      <div class="hero-stats">
-       <div class="stat">
-        <strong>
-         4
-        </strong>
-        <span>
-         Categor&iacute;as
-        </span>
-       </div>
-       <div class="stat">
-        <strong>
-         12
-        </strong>
-        <span>
-         Juegos
-        </span>
-       </div>
-       <div class="stat">
-        <strong>
-         CSS3
-        </strong>
-        <span>
-         Animado
-        </span>
-       </div>
+    </section>
+    <section class="seccion" id="categorias">
+      <div class="contenedor">
+        <div>
+          <br>
+          <div><span class="etiqueta">Categorías disponibles</span><h2>Encuentra una experiencia para cada mesa.</h2></div>
+          <p> Para dos: ¿Solo son tú y otra persona? Cero problemas. Aquí encuentras juegos diseñados específicamente para duelos estratégicos frente a frente o aventuras en pareja, sin necesidad de juntar a todo un grupo.</p>
+          <p>Misterio: Saca tu lado detective. Esta sección es pura deducción, crímenes por resolver, identidades ocultas y escape rooms de mesa. Perfectos para quienes disfrutan buscando pistas y desentrañando enigmas.</p>
+          <p>Cooperativos: O ganan todos o pierden todos. En estos títulos el rival es el propio tablero o sistema de juego. La clave está en hablar, planear en equipo y tomar decisiones conjuntas para lograr el objetivo.</p>
+          <p>Familiares: Diversión para cualquier edad. Son juegos con reglas rápidas de aprender y partidas dinámicas. La opción segura para sacar a la mesa en una tarde con los niños, primos o abuelos.</p>
+          </div>
+        <div class="categorias-grid row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
+          <article class="categoria-card card border-0 col">
+            <a aria-label="Ver juegos de la categoría Familiares" href="categorias/familiares.html">
+              <img alt="Imagen de referencia para la categoría Familiares" src="img/categorias/familiares.svg">
+              <div class="categoria-card-content card-body">
+                <h3>Familiares</h3>
+                <p>Opciones entretenidas, fáciles de aprender y perfectas para una tarde en familia.</p>
+                <span class="link-card">Ver catálogo</span>
+              </div>
+            </a>
+          </article>
+          <article class="categoria-card card border-0 col">
+            <a aria-label="Ver juegos de la categoría Para dos" href="categorias/para-dos.html">
+              <img alt="Imagen de referencia para la categoría Para dos" src="img/categorias/para-dos.svg">
+              <div class="categoria-card-content card-body">
+                <h3>Para dos</h3>
+                <p>Partidas pensadas para dos personas, con tensión, táctica y decisiones ajustadas.</p>
+                <span class="link-card">Ver catálogo</span>
+              </div>
+            </a>
+          </article>
+          <article class="categoria-card card border-0 col">
+            <a aria-label="Ver juegos de la categoría Misterio" href="categorias/misterio.html">
+              <img alt="Imagen de referencia para la categoría Misterio" src="img/categorias/misterio.svg">
+              <div class="categoria-card-content card-body">
+                <h3>Misterio</h3>
+                <p>Historias para investigar, resolver enigmas y descubrir la verdad detrás de cada caso.</p>
+                <span class="link-card">Ver catálogo</span>
+              </div>
+            </a>
+          </article>
+          <article class="categoria-card card border-0 col">
+            <a aria-label="Ver juegos de la categoría Cooperativos" href="categorias/cooperativos.html">
+              <img alt="Imagen de referencia para la categoría Cooperativos" src="img/categorias/cooperativos.svg">
+              <div class="categoria-card-content card-body">
+                <h3>Cooperativos</h3>
+                <p>Experiencias donde el equipo comparte información, toma decisiones y alcanza un objetivo común.</p>
+                <span class="link-card">Ver catálogo</span>
+              </div>
+            </a>
+          </article>
+        </div>
       </div>
-     </aside>
-    </div>
-   </section>
-   <section class="seccion" id="categorias">
-    <div class="contenedor">
-     <div class="seccion-encabezado">
-      <div>
-       <span class="etiqueta">
-        Categor&iacute;as disponibles
-       </span>
-       <h2>
-        Encuentra una experiencia para cada mesa.
-       </h2>
-      </div>
-      <p>
-       Cada categor&iacute;a incluye un hiperv&iacute;nculo, una imagen de referencia y fichas de juegos con descripci&oacute;n, precio y estado de descuento.
-      </p>
-     </div>
-     <div class="categorias-grid">
-      <article class="categoria-card">
-       <a aria-label="Ver juegos de la categor&iacute;a Familiares" href="categorias/familiares.html">
-        <img alt="Imagen de referencia para la categor&iacute;a Familiares" src="img/categorias/familiares.svg"/>
-        <div class="categoria-card-content">
-         <h3>
-          Familiares
-         </h3>
-         <p>
-          Opciones entretenidas, f&aacute;ciles de aprender y perfectas para una tarde en familia.
-         </p>
-         <span class="link-card">
-          Ver cat&aacute;logo
-         </span>
-        </div>
-       </a>
-      </article>
-      <article class="categoria-card">
-       <a aria-label="Ver juegos de la categor&iacute;a Para dos" href="categorias/para-dos.html">
-        <img alt="Imagen de referencia para la categor&iacute;a Para dos" src="img/categorias/para-dos.svg"/>
-        <div class="categoria-card-content">
-         <h3>
-          Para dos
-         </h3>
-         <p>
-          Partidas pensadas para dos personas, con tensi&oacute;n, t&aacute;ctica y decisiones ajustadas.
-         </p>
-         <span class="link-card">
-          Ver cat&aacute;logo
-         </span>
-        </div>
-       </a>
-      </article>
-      <article class="categoria-card">
-       <a aria-label="Ver juegos de la categor&iacute;a Misterio" href="categorias/misterio.html">
-        <img alt="Imagen de referencia para la categor&iacute;a Misterio" src="img/categorias/misterio.svg"/>
-        <div class="categoria-card-content">
-         <h3>
-          Misterio
-         </h3>
-         <p>
-          Historias para investigar, resolver enigmas y descubrir la verdad detr&aacute;s de cada caso.
-         </p>
-         <span class="link-card">
-          Ver cat&aacute;logo
-         </span>
-        </div>
-       </a>
-      </article>
-      <article class="categoria-card">
-       <a aria-label="Ver juegos de la categor&iacute;a Cooperativos" href="categorias/cooperativos.html">
-        <img alt="Imagen de referencia para la categor&iacute;a Cooperativos" src="img/categorias/cooperativos.svg"/>
-        <div class="categoria-card-content">
-         <h3>
-          Cooperativos
-         </h3>
-         <p>
-          Experiencias donde el equipo comparte informaci&oacute;n, toma decisiones y alcanza un objetivo com&uacute;n.
-         </p>
-         <span class="link-card">
-          Ver cat&aacute;logo
-         </span>
-        </div>
-       </a>
-      </article>
-       </div>
-   </section>
-  
-    <div class="contenedor">
-     <article class="terminos-card">
-      <span class="etiqueta">
-       T&eacute;rminos y condiciones
-      </span>
-      <h2>
-       Condiciones de uso de Ludoteca Roberto.
-      </h2>
-      <p>
-        Lorem ipsum pactum hoc infernale, scriptum sub sigillo noctis aeternae, inter lectorem praesentem et Diabolum, dominum umbrarum, ignis absconditi et abyssorum sine fine, firmatur. Qui has condiciones legit, intellegit, accipit vel tacite approbat, se ipsum vinculo perpetuo et irrevocabili subicere consentit.      </p>
-      <p>
-        Per hanc acceptationem, anima accipientis, cum omni lumine, memoria, voluntate, spe et secreto cordis, ceditur, traditur et assignatur Diabolo, eius legatis, ministris, daemonibus, principibus infernalibus atque omnibus entitatibus cosmicis obscuris, quae ultra stellas, sub tempore et extra mundi fines latent.      <p>
-        Sed do eiusmod tempor incididunt, donec horae ipsae languescant et luna rubra super tecta deserta surgat. Corvi taciti in summis arboribus sedent, oculis ardentibus spectantes viatorem solum, qui viam retro invenire iam non potest.</p>
-      <p>
-        Haec cessio animae fit plena, absoluta, perpetua et irreversibilis. Nulla paenitentia, nulla retractatio, nullum ius humanum, divinum, naturale vel cosmicum potest hoc pactum dissolvere, minuere, frangere aut infirmare. Anima tradita non revertetur ad possessorem priorem, neque in vita, neque in morte, neque post omnem finem temporis.      </p>
-      <p>
-        Accipiens agnoscit se nullam compensationem exigere posse, nisi tenebras, silentium, desideria corrupta et promissa quae numquam integre complentur. Omnia vota concessa erunt secundum voluntatem Diaboli et entitatum obscurarum, non secundum spem aut intellectum accipientis.      </p>
-      <p>
-        Diabolus et entitates cosmicae obscurae reservant sibi ius intrandi somnia, cogitationes, umbras, specula, voces interiores et momenta solitudinis accipientis. Item reservant sibi ius signa mittere, nomen eius inter libros damnatos scribere et vestigia animae eius in atramento nigro conservare.      </p>
-      <p>
-        Accipiens confitetur se hunc contractum non vi, non errore, non dolo humano, sed propria curiositate, superbia, cupiditate vel negligentia aperuisse. Ideo omnis culpa, omnis poena et omnis consequentia spiritualis ad ipsum accipientem pertinebit.      </p>
-     <p>
-        Si qua pars huius pacti obscura, ambigua vel impossibilis videatur, interpretatio semper fiet in favorem Diaboli, abyssorum, daemonum et entitatum cosmicorum tenebrosarum. Silentium accipientis habebitur pro consensu; dubitatio pro submissione; lectura pro signo.
-     </p>
-     <p>
-        In testimonium huius pacti, verba haec manebunt viva sub pelle paginae. Qui legit, signavit. Qui intellexit, cecidit. Qui accepit, animam amisit. Et pactum hoc valebit nunc, semper, in aeternum, ultra mortem, ultra lucem, ultra ultimum iudicium stellarum.
-     </p>
-    
+    </section>
+   
+    <section class="seccion" id="terminos">
+      <div class="contenedor">
+        <article class="terminos-card">
+          <span class="etiqueta">Términos y condiciones</span>
+          <h2>Condiciones de uso de Ludoteca Roberto.</h2>
+          <div class="terminos-texto">
+           <p>Lorem ipsum pactum hoc infernale, scriptum sub sigillo noctis aeternae, inter lectorem praesentem et Diabolum, dominum umbrarum, ignis absconditi et abyssorum sine fine, firmatur. Qui has condiciones legit, intellegit, accipit vel tacite approbat, se ipsum vinculo perpetuo et irrevocabili subicere consentit.</p>
+            <p>Per hanc acceptationem, anima accipientis, cum omni lumine, memoria, voluntate, spe et secreto cordis, ceditur, traditur et assignatur Diabolo, eius legatis, ministris, daemonibus, principibus infernalibus atque omnibus entitatibus cosmicis obscuris, quae ultra stellas, sub tempore et extra mundi fines latent.</p>
+            <p>Sed do eiusmod tempor incididunt, donec horae ipsae languescant et luna rubra super tecta deserta surgat. Corvi taciti in summis arboribus sedent, oculis ardentibus spectantes viatorem solum, qui viam retro invenire iam non potest.</p>
+            <p>Haec cessio animae fit plena, absoluta, perpetua et irreversibilis. Nulla paenitentia, nulla retractatio, nullum ius humanum, divinum, naturale vel cosmicum potest hoc pactum dissolvere, minuere, frangere aut infirmare. Anima tradita non revertetur ad possessorem priorem, neque in vita, neque in morte, neque post omnem finem temporis.</p>
+            <p>Accipiens agnoscit se nullam compensationem exigere posse, nisi tenebras, silentium, desideria corrupta et promissa quae numquam integre complentur. Omnia vota concessa erunt secundum voluntatem Diaboli et entitatum obscurarum, non secundum spem aut intellectum accipientis.</p>
+            <p>Diabolus et entitates cosmicae obscurae reservant sibi ius intrandi somnia, cogitationes, umbras, specula, voces interiores et momenta solitudinis accipientis. Item reservant sibi ius signa mittere, nomen eius inter libros damnatos scribere et vestigia animae eius in atramento nigro conservare.</p>
+            <p>Accipiens confitetur se hunc contractum non vi, non errore, non dolo humano, sed propria curiositate, superbia, cupiditate vel negligentia aperuisse. Ideo omnis culpa, omnis poena et omnis consequentia spiritualis ad ipsum accipientem pertinebit.</p>
+            <p>Si qua pars huius pacti obscura, ambigua vel impossibilis videatur, interpretatio semper fiet in favorem Diaboli, abyssorum, daemonum et entitatum cosmicorum tenebrosarum. Silentium accipientis habebitur pro consensu; dubitatio pro submissione; lectura pro signo.</p>
+            <p>In testimonium huius pacti, verba haec manebunt viva sub pelle paginae. Qui legit, signavit. Qui intellexit, cecidit. Qui accepit, animam amisit. Et pactum hoc valebit nunc, semper, in aeternum, ultra mortem, ultra lucem, ultra ultimum iudicium stellarum.</p>
+          </div>
         </article>
-    </div>
-   </section>
+      </div>
+    </section>
   </main>
   <footer class="footer">
-   <div class="contenedor footer-content">
-    <p>
-     &copy; 2026 Ludoteca Roberto. Sitio desarrollado para la asignatura Desarrollo Fullstack II.
-    </p>
-    <a href="#top"> 
-     Volver arriba
-    </a>
-   </div>
+    <div class="contenedor footer-content">
+      <p>&copy; 2026 Ludoteca Roberto. Sitio desarrollado para Desarrollo Full Stack II.</p>
+      <div class="footer-links">
+        <a href="cuentas/registro.html">Registro</a>
+        <a href="cuentas/recuperar.html">Recuperar contraseña</a>
+        <a href="#top">Volver arriba</a>
+      </div>
+    </div>
   </footer>
-  <section aria-label="Inicio de sesi&oacute;n" class="modal-login" id="login">
-   <a aria-label="Cerrar ventana de inicio de sesi&oacute;n" class="modal-fondo" href="#top">
-   </a>
-   <div aria-labelledby="login-titulo" aria-modal="true" class="login-caja" role="dialog">
-    <a aria-label="Cerrar inicio de sesi&oacute;n" class="modal-cerrar" href="#top">
-     &times;
-    </a>
-    <span class="etiqueta">
-     Acceso  usuarios registrados
-    </span>
-    <h2 id="login-titulo">
-     Iniciar sesi&oacute;n
-    </h2>
-    <p class="login-texto">
-     Ingresa con tu nombre de usuario y contrase&ntilde;a para continuar.
-    </p>
-    <form class="login-form" id="formLogin">
-     <label class="campo">
-      <span>
-       Nombre de usuario
-      </span>
-      <input autocomplete="username" minlength="4" name="loginUsuario" placeholder="Tu usuario" required="" type="text"/>
-      <small>
-       Ingresa tu usuario registrado.
-      </small>
-     </label>
-     <label class="campo">
-      <span>
-       Contrase&ntilde;a
-      </span>
-      <input autocomplete="current-password" minlength="8" name="loginClave" placeholder="Tu contrase&ntilde;a" required="" type="password"/>
-      <small>
-       Ingresa una contrase&ntilde;a v&aacute;lida.
-      </small>
-     </label>
-     <div class="login-opciones">
-      <label>
-       <input name="recordar" type="checkbox"/>
-       Recordarme
-      </label>
-      <details>
-       <summary>
-        Recuperar contrase&ntilde;a
-       </summary>
-       <p>
-        Escribe tu correo para simular la recuperaci&oacute;n de acceso.
-       </p>
-       <input name="correoRecuperacion" placeholder="correo@ejemplo.cl" type="email"/>
-      </details>
-     </div>
-     <p aria-live="polite" class="mensaje-formulario" id="mensajeLogin">
-     </p>
-     <button class="boton" type="submit">
-      Entrar
-     </button>
-    </form>
-    <p class="modal-mini">
-     &iquest;A&uacute;n no tienes cuenta?
-     <a href="#registro">
-      Reg&iacute;strate aqu&iacute;
-     </a>
-     .
-    </p>
-   </div>
-  </section>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="js/app.js">
-  </script>
- </body>
+  <div class="modal fade modal-login-bs" id="loginModal" tabindex="-1" aria-labelledby="loginTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content login-caja">
+        <div class="modal-header login-modal-header">
+          <div>
+            <span class="etiqueta">Acceso usuarios</span>
+            <h2 class="modal-title" id="loginTitulo">Iniciar sesión</h2>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p class="login-texto">Ingresa con un usuario de prueba para simular la sesión y mostrar opciones privadas.</p>
+          <form class="login-form" id="formLogin" action="#" method="post" novalidate>
+            <label class="campo">
+              <span>Nombre de usuario</span>
+              <input class="form-control" type="text" name="loginUsuario" placeholder="usuario o admin" autocomplete="username" required minlength="4">
+              <small>Prueba: usuario / Usuario1234 o admin / Admin12345</small>
+            </label>
+            <label class="campo">
+              <span>Contraseña</span>
+              <input class="form-control" type="password" name="loginClave" placeholder="Tu contraseña" autocomplete="current-password" required minlength="8">
+              <small>La contraseña debe tener al menos 8 caracteres.</small>
+            </label>
+            <div class="login-opciones">
+              <label><input type="checkbox" name="recordar"> Recordarme</label>
+              <a href="cuentas/recuperar.html">Recuperar contraseña</a>
+            </div>
+            <p aria-live="polite" class="mensaje-formulario" id="mensajeLogin"></p>
+            <button class="boton w-100" type="submit">Entrar</button>
+          </form>
+          <p class="modal-mini">¿Aún no tienes cuenta? <a href="cuentas/registro.html">Regístrate aquí</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
 </html>
