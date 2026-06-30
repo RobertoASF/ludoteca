@@ -1,0 +1,11 @@
+
+    <div class="contenedor footer-content footer">
+      <p>&copy; 2026 Ludoteca Roberto. Sitio desarrollado para Desarrollo Full Stack II.</p>
+      <div class="footer-links">
+        <a class="nav-link" routerLink="/registro" routerLinkActive="activo" *ngIf="!auth.estaLogueado()">Regístrate </a>
+        <a class="nav-link" routerLink="/recuperar" routerLinkActive="activo">
+          Recuperar contraseña
+        </a>
+        <a href="#top">Volver arriba</a>
+      </div>
+    </div>

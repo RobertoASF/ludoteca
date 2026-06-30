@@ -1,0 +1,70 @@
+<div class="modal fade modal-login-bs" id="loginModal" tabindex="-1" aria-labelledby="loginTitulo" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content login-caja">
+      <div class="modal-header login-modal-header">
+        <div>
+          <span class="etiqueta">Acceso usuarios</span>
+          <h2 class="modal-title" id="loginTitulo">Iniciar sesión</h2>
+        </div>
+
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+        <p class="login-texto">
+          Ingresa con un usuario de prueba para simular la sesión y mostrar opciones privadas.
+        </p>
+
+        <form class="login-form" [formGroup]="form" (ngSubmit)="ingresar()" novalidate>
+          <label class="campo">
+            <span>Nombre de usuario</span>
+            <input
+              class="form-control"
+              type="text"
+              formControlName="loginUsuario"
+              placeholder="usuario o admin"
+              autocomplete="username">
+
+            <small>Prueba: usuario / Usuario1234 o admin / Admin12345</small>
+          </label>
+
+          <label class="campo">
+            <span>Contraseña</span>
+            <input
+              class="form-control"
+              type="password"
+              formControlName="loginClave"
+              placeholder="Tu contraseña"
+              autocomplete="current-password">
+
+            <small>La contraseña debe tener al menos 8 caracteres.</small>
+          </label>
+
+          <div class="login-opciones">
+            <label>
+              <input type="checkbox" formControlName="recordar">
+              Recordarme
+            </label>
+
+            <a routerLink="/recuperar" data-bs-dismiss="modal">
+              Recuperar contraseña
+            </a>
+          </div>
+
+          <p aria-live="polite" class="mensaje-formulario mensaje-error" *ngIf="mensaje">
+            {{ mensaje }}
+          </p>
+
+          <button class="boton w-100" type="submit">
+            Entrar
+          </button>
+        </form>
+
+        <p class="modal-mini">
+          ¿Aún no tienes cuenta?
+          <a routerLink="/registro" data-bs-dismiss="modal">Regístrate aquí</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

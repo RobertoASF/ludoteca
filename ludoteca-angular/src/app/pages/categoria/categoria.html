@@ -1,0 +1,114 @@
+<section class="hero pagina-categoria-hero" *ngIf="categoria; else categoriaNoEncontrada">
+  <div class="contenedor row align-items-center gy-4">
+    <div class="col-lg-7">
+      <div class="miga">
+        <a routerLink="/">Inicio</a>
+        <span>/</span>
+        <span>{{ categoria.nombre }}</span>
+      </div>
+
+      <span class="etiqueta">{{ categoria.icono }} Categoría</span>
+
+      <h1>{{ categoria.nombre }}</h1>
+
+      <p class="bajada">
+        {{ categoria.descripcion }}
+      </p>
+
+      <div class="acciones">
+        <a class="boton" href="#juegos">Ver juegos</a>
+        <a class="boton-secundario" routerLink="/">Volver al inicio</a>
+      </div>
+    </div>
+
+    <aside class="hero-card col-lg-5">
+      <img
+        [src]="categoria.imagen"
+        [alt]="'Imagen de referencia de la categoría ' + categoria.nombre">
+
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>{{ categoria.juegos.length }}</strong>
+          <span>Juegos</span>
+        </div>
+
+        <div class="stat">
+          <strong>{{ categoria.icono }}</strong>
+          <span>{{ categoria.nombre }}</span>
+        </div>
+
+        <div class="stat">
+          <strong>CLP</strong>
+          <span>Precios</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="seccion" id="juegos" *ngIf="categoria">
+  <div class="contenedor">
+    <div class="seccion-encabezado">
+      <div>
+        <span class="etiqueta">Fichas de juegos</span>
+        <h2>Catálogo {{ categoria.nombre | lowercase }}</h2>
+      </div>
+
+      <p>
+        Diseño responsivo con Bootstrap y estilos propios para mantener la identidad visual de la tienda.
+      </p>
+    </div>
+
+    <div class="juegos-grid row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+      <article class="juego-card card border-0" *ngFor="let juego of categoria.juegos">
+        <div class="juego-media">
+          <img [src]="juego.imagen" [alt]="'Imagen del juego ' + juego.nombre">
+          <span class="chip">{{ juego.chip }}</span>
+        </div>
+
+        <div class="juego-content card-body">
+          <h3>{{ juego.nombre }}</h3>
+
+          <p>
+            {{ juego.descripcion }}
+          </p>
+
+          <div class="precio-linea">
+            <strong class="precio">{{ juego.precio }}</strong>
+
+            <span [class.descuento]="juego.descuento" [class.sin-descuento]="!juego.descuento">
+              Descuento: {{ juego.descuentoTexto }}
+            </span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <nav class="navegacion-interna" aria-label="Navegación entre categorías">
+      <a class="boton" routerLink="/">Inicio</a>
+
+      <a
+        class="boton-secundario"
+        *ngFor="let otra of otrasCategorias"
+        [routerLink]="['/categorias', otra.slug]">
+        {{ otra.nombre }}
+      </a>
+    </nav>
+  </div>
+</section>
+
+<ng-template #categoriaNoEncontrada>
+  <section class="hero">
+    <div class="contenedor">
+      <span class="etiqueta">Categoría no encontrada</span>
+      <h1>No encontramos esta categoría.</h1>
+      <p class="bajada">
+        Vuelve al inicio y selecciona una categoría disponible.
+      </p>
+
+      <div class="acciones">
+        <a class="boton" routerLink="/">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+</ng-template>

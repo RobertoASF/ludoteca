@@ -1,0 +1,74 @@
+<header class="site-header">
+    <nav class="navbar navbar-expand-xl navbar-dark" aria-label="Navegación principal">
+      <div class="header-content">
+        <a class="logo navbar-brand" routerLink="/" aria-label="Ir al inicio de Ludoteca Roberto">
+          <span class="logo-icon">🎲</span>
+          <span>Ludoteca Roberto</span>
+        </a>
+  
+        <button
+          class="navbar-toggler nav-toggle-ludoteca"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navPrincipal"
+          aria-controls="navPrincipal"
+          aria-expanded="false"
+          aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse justify-content-end" id="navPrincipal">
+          <div class="nav-principal navbar-nav ms-auto">
+            <a class="nav-link" routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
+              Inicio
+            </a>
+  
+            <a class="nav-link" routerLink="/categorias/familiares" routerLinkActive="activo">
+              Familiares
+            </a>
+  
+            <a class="nav-link" routerLink="/categorias/para-dos" routerLinkActive="activo">
+              Para dos
+            </a>
+  
+            <a class="nav-link" routerLink="/categorias/misterio" routerLinkActive="activo">
+              Misterio
+            </a>
+  
+            <a class="nav-link" routerLink="/categorias/cooperativos" routerLinkActive="activo">
+              Cooperativos
+            </a>
+  
+            <a class="nav-link" routerLink="/registro" routerLinkActive="activo" *ngIf="!auth.estaLogueado()">
+              Regístrate
+            </a>
+  
+            <a
+              class="nav-link nav-login"
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#loginModal"
+              *ngIf="!auth.estaLogueado()">
+              Inicia sesión
+            </a>
+  
+            <a class="nav-link" routerLink="/perfil" routerLinkActive="activo" *ngIf="auth.estaLogueado()">
+              Mi perfil
+            </a>
+  
+            <a class="nav-link" routerLink="/admin/dashboard" routerLinkActive="activo" *ngIf="auth.esAdmin()">
+              Dashboard
+            </a>
+  
+            <a class="nav-link nav-saludo" routerLink="/perfil" *ngIf="auth.estaLogueado()">
+              Hola, {{ auth.sesion()?.usuario }}
+            </a>
+  
+            <a class="nav-link nav-logout" href="#" *ngIf="auth.estaLogueado()" (click)="logout($event)">
+              Cerrar sesión
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
