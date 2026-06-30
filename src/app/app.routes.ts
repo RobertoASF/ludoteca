@@ -5,14 +5,14 @@ import { Registro } from './pages/registro/registro';
 import { Perfil } from './pages/perfil/perfil';
 import { Recuperar } from './pages/recuperar/recuperar';
 import { Dashboard } from './pages/dashboard/dashboard';
-import { AuthService } from './guards/auth-guard';
+import { authGuard  } from './guards/auth-guard';
 import { adminGuard } from './guards/admin-guard';
 
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'categorias/:slug', component: CategoriaComponent },
   { path: 'registro', component: Registro },
-  { path: 'perfil', component: Perfil, canActivate: [AuthService] },
+  { path: 'perfil', component: Perfil, canActivate: [authGuard] },
   { path: 'recuperar', component: Recuperar },
   { path: 'admin/dashboard', component: Dashboard, canActivate: [adminGuard] },
   { path: '**', redirectTo: '' }
