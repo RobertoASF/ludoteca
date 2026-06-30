@@ -60,7 +60,7 @@
     </div>
 
     <div class="juegos-grid row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-      <article class="juego-card card border-0" *ngFor="let juego of categoria.juegos">
+      <article class="juego-card card border-0" *ngFor="let juego of categoria.juegos; trackBy: trackByJuego">
         <div class="juego-media">
           <img [src]="juego.imagen" [alt]="'Imagen del juego ' + juego.nombre">
           <span class="chip">{{ juego.chip }}</span>
@@ -74,7 +74,7 @@
           </p>
 
           <div class="precio-linea">
-            <strong class="precio">{{ juego.precio }}</strong>
+            <strong class="precio">{{ formatearCLP(juego.precio) }}</strong>
 
             <span [class.descuento]="juego.descuento" [class.sin-descuento]="!juego.descuento">
               Descuento: {{ juego.descuentoTexto }}

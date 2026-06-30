@@ -1,15 +1,190 @@
-<section class="hero"><div class="contenedor"><div class="miga"><a href="../index.html">Inicio</a><span>/</span><span>Dashboard admin</span></div><span class="etiqueta">Rol admin</span><h1>Dashboard de <span class="texto-destacado">administración.</span></h1><p class="bajada">Vista privada para revisar indicadores simulados del catálogo, usuarios y ventas.</p></div></section>
-    <section class="seccion"><div class="contenedor"><article class="auth-alert" data-guard-message></article>
-      <div class="dashboard-wrapper d-none" data-admin-content>
-        <div class="row g-4">
-          <div class="col-md-6 col-xl-3"><article class="dashboard-card"><span>Usuarios</span><strong data-admin-users>3</strong><small>Registrados en la maqueta</small></article></div>
-          <div class="col-md-6 col-xl-3"><article class="dashboard-card"><span>Juegos</span><strong>12</strong><small>Catálogo disponible</small></article></div>
-          <div class="col-md-6 col-xl-3"><article class="dashboard-card"><span>Categorías</span><strong>4</strong><small>Familiares, dos, misterio y cooperativos</small></article></div>
-          <div class="col-md-6 col-xl-3"><article class="dashboard-card"><span>Ventas</span><strong>$284.900</strong><small>Simulación mensual</small></article></div>
-        </div>
-        <div class="row g-4 mt-1">
-          <div class="col-lg-7"><article class="admin-panel"><div class="seccion-encabezado registro-encabezado"><div><span class="etiqueta">Pedidos recientes</span><h2>Actividad simulada.</h2></div></div><div class="table-responsive"><table class="table table-dark table-hover align-middle tabla-admin"><thead><tr><th>Pedido</th><th>Cliente</th><th>Juego</th><th>Estado</th></tr></thead><tbody><tr><td>#LR-1024</td><td>usuario</td><td>Space Base</td><td><span class="badge text-bg-success">Pagado</span></td></tr><tr><td>#LR-1025</td><td>roberto</td><td>Codigo Secreto Duo</td><td><span class="badge text-bg-info">Preparando</span></td></tr><tr><td>#LR-1026</td><td>cliente</td><td>EXIT: La Estación Polar</td><td><span class="badge text-bg-warning">Pendiente</span></td></tr></tbody></table></div></article></div>
-          <div class="col-lg-5"><article class="admin-panel"><span class="etiqueta">Acciones rápidas</span><h2>Gestión del sitio.</h2><div class="admin-actions"><a class="boton" href="../index.html#categorias">Ver catálogo</a><a class="boton-secundario" href="../cuentas/perfil.html">Mi perfil admin</a><a class="boton-secundario" href="#" data-logout>Cerrar sesión</a></div></article></div>
+<section class="hero dashboard-hero">
+  <div class="contenedor">
+    <div class="miga">
+      <a routerLink="/">Inicio</a>
+      <span>/</span>
+      <span>Panel de administrador</span>
+    </div>
+
+    <div class="dashboard-hero-grid">
+      <div>
+        <span class="etiqueta">🛠️ Administración</span>
+
+        <h1>Panel de control</h1>
+
+        <p class="bajada" *ngIf="usuarioActual() as usuario">
+          Bienvenido, {{ usuario.nombreCompleto }}. Desde aquí puedes revisar el estado general del catálogo,
+          categorías, descuentos y datos simulados de la tienda.
+        </p>
+
+        <div class="acciones">
+          <a class="boton" routerLink="/">Ver tienda</a>
+
+          <a class="boton-secundario" href="#" (click)="cerrarSesion($event)">
+            Cerrar sesión
+          </a>
         </div>
       </div>
-    </div></section>
+
+      <aside class="dashboard-resumen">
+        <span>Sesión actual</span>
+
+        <strong *ngIf="usuarioActual() as usuario">
+          {{ usuario.usuario }}
+        </strong>
+
+        <small>
+          {{ fechaActual | date:'dd/MM/yyyy HH:mm' }}
+        </small>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor">
+    <div class="dashboard-kpis">
+      <article class="dashboard-card">
+        <span class="dashboard-icono">👥</span>
+        <small>Usuarios registrados</small>
+        <strong>{{ totalUsuarios() }}</strong>
+        <p>Incluye usuarios base y usuarios creados en LocalStorage.</p>
+      </article>
+
+      <article class="dashboard-card">
+        <span class="dashboard-icono">🎲</span>
+        <small>Juegos publicados</small>
+        <strong>{{ totalJuegos() }}</strong>
+        <p>Total de juegos disponibles en el catálogo.</p>
+      </article>
+
+      <article class="dashboard-card">
+        <span class="dashboard-icono">🏷️</span>
+        <small>Con descuento</small>
+        <strong>{{ totalJuegosConDescuento() }}</strong>
+        <p>Juegos que actualmente tienen promoción activa.</p>
+      </article>
+
+      <article class="dashboard-card">
+        <span class="dashboard-icono">💰</span>
+        <small>Valor catálogo</small>
+        <strong>{{ valorCatalogo() }}</strong>
+        <p>Suma referencial de todos los productos publicados.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor">
+    <div class="seccion-encabezado">
+      <div>
+        <span class="etiqueta">📦 Estado del catálogo</span>
+        <h2>Categorías disponibles</h2>
+      </div>
+
+      <p>
+        Revisa rápidamente cuántos juegos tiene cada categoría y cuántos están actualmente con descuento.
+      </p>
+    </div>
+
+    <div class="dashboard-tabla">
+      <table>
+        <thead>
+          <tr>
+            <th>Categoría</th>
+            <th>Juegos</th>
+            <th>Con descuento</th>
+            <th>Sin descuento</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let categoria of categoriasResumen()">
+            <td>
+              <strong>{{ categoria.icono }} {{ categoria.nombre }}</strong>
+            </td>
+
+            <td>{{ categoria.totalJuegos }}</td>
+            <td>{{ categoria.juegosConDescuento }}</td>
+            <td>{{ categoria.juegosSinDescuento }}</td>
+
+            <td>
+              <a class="link-card" [routerLink]="['/categorias', categoria.slug]">
+                Ver categoría
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor dashboard-grid-secundario">
+    <article class="panel-info">
+      <span class="etiqueta">🔥 Juegos destacados</span>
+      <h2>Productos de mayor precio</h2>
+
+      <div class="dashboard-lista">
+        <div class="dashboard-lista-item" *ngFor="let juego of juegosDestacados()">
+          <div>
+            <strong>{{ juego.nombre }}</strong>
+            <span>{{ juego.categoria }}</span>
+          </div>
+
+          <div class="dashboard-precio">
+            <strong>{{ juego.precio }}</strong>
+            <small *ngIf="juego.descuento">Con descuento</small>
+            <small *ngIf="!juego.descuento">Precio normal</small>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel-info">
+      <span class="etiqueta">📊 Resumen comercial</span>
+      <h2>Indicadores rápidos</h2>
+
+      <ul class="dashboard-indicadores">
+        <li>
+          <span>Categorías activas</span>
+          <strong>{{ totalCategorias() }}</strong>
+        </li>
+
+        <li>
+          <span>Juegos sin descuento</span>
+          <strong>{{ totalJuegosSinDescuento() }}</strong>
+        </li>
+
+        <li>
+          <span>Precio promedio</span>
+          <strong>{{ precioPromedio() }}</strong>
+        </li>
+
+        <li>
+          <span>Estado general</span>
+          <strong>Activo</strong>
+        </li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor">
+    <article class="panel-info">
+      <span class="etiqueta">✅ Acciones recomendadas</span>
+      <h2>Próximas tareas del administrador</h2>
+
+      <ul class="dashboard-tareas">
+        <li>Revisar juegos sin descuento y decidir si entran en promoción.</li>
+        <li>Actualizar precios antes de publicar nuevas campañas.</li>
+        <li>Validar que todas las categorías tengan imágenes y descripciones correctas.</li>
+        <li>Revisar usuarios registrados en LocalStorage durante las pruebas.</li>
+      </ul>
+    </article>
+  </div>
+</section>

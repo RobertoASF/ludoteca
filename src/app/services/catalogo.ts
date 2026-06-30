@@ -11,7 +11,7 @@ export class CatalogoService {
       nombre: 'Familiares',
       icono: '🏠',
       descripcion: 'Opciones entretenidas, fáciles de aprender y perfectas para una tarde en familia. Revisa hasta tres juegos disponibles, cada uno con imagen, descripción breve, precio y estado de descuento.',
-      imagen: 'img/categorias/familiares.svg',
+      imagen: '/img/categorias/familiares.svg',
       juegos: [
         {
           nombre: 'Space Base',
@@ -20,7 +20,7 @@ export class CatalogoService {
           descuento: true,
           descuentoTexto: 'Sí, 15%',
           porcentajeDescuento: 15,
-          imagen: 'img/juegos/space-base.svg',
+          imagen: '/img/juegos/space-base.svg',
           chip: '🚀 Descuento'
         },
         {
@@ -29,7 +29,7 @@ export class CatalogoService {
           precio: 29.990,
           descuento: false,
           descuentoTexto: 'No',
-          imagen: 'img/juegos/wild-space.svg',
+          imagen: '/img/juegos/wild-space.svg',
           chip: '🪐 Precio normal'
         },
         {
@@ -38,7 +38,7 @@ export class CatalogoService {
           precio: 24.990,
           descuento: true,
           descuentoTexto: 'Sí, 10%',
-          imagen: 'img/juegos/trek-12-himalaya.svg',
+          imagen: '/img/juegos/trek-12-himalaya.svg',
           chip: '🏔️ Descuento'
         }
       ]
@@ -48,7 +48,7 @@ export class CatalogoService {
       nombre: 'Para dos',
       icono: '⚔️',
       descripcion: 'Partidas pensadas para dos personas, con tensión, táctica y decisiones ajustadas. Revisa hasta tres juegos disponibles, cada uno con imagen, descripción breve, precio y estado de descuento.',
-      imagen: 'img/categorias/para-dos.svg',
+      imagen: '/img/categorias/para-dos.svg',
       juegos: [
         {
           nombre: 'Curious Cargo',
@@ -56,7 +56,7 @@ export class CatalogoService {
           precio: 34.990,
           descuento: true,
           descuentoTexto: 'Sí, 12%',
-          imagen: 'img/juegos/curious-cargo.svg',
+          imagen: '/img/juegos/curious-cargo.svg',
           chip: '📦 Descuento'
         },
         {
@@ -65,7 +65,7 @@ export class CatalogoService {
           precio: 44.990,
           descuento: false,
           descuentoTexto: 'No',
-          imagen: 'img/juegos/cosmic-encounters-duel.svg',
+          imagen: '/img/juegos/cosmic-encounters-duel.svg',
           chip: '🌌 Precio normal'
         },
         {
@@ -74,7 +74,7 @@ export class CatalogoService {
           precio: 32.990,
           descuento: true,
           descuentoTexto: 'Sí, 8%',
-          imagen: 'img/juegos/catan-el-duelo-eras-doradas.svg',
+          imagen: '/img/juegos/catan-el-duelo-eras-doradas.svg',
           chip: '🌾 Descuento'
         }
       ]
@@ -84,7 +84,7 @@ export class CatalogoService {
       nombre: 'Misterio',
       icono: '🕵️',
       descripcion: 'Historias para investigar, resolver enigmas y descubrir la verdad detrás de cada caso. Revisa hasta tres juegos disponibles, cada uno con imagen, descripción breve, precio y estado de descuento.',
-      imagen: 'img/categorias/misterio.svg',
+      imagen: '/img/categorias/misterio.svg',
       juegos: [
         {
           nombre: 'Sherlock: Ensayos Fabianos',
@@ -92,7 +92,7 @@ export class CatalogoService {
           precio: 12.990,
           descuento: false,
           descuentoTexto: 'No',
-          imagen: 'img/juegos/sherlock-ensayos-fabianos.svg',
+          imagen: '/img/juegos/sherlock-ensayos-fabianos.svg',
           chip: '🔎 Precio normal'
         },
         {
@@ -101,7 +101,7 @@ export class CatalogoService {
           precio: 28.990,
           descuento: true,
           descuentoTexto: 'Sí, 10%',
-          imagen: 'img/juegos/todo-el-mundo-miente.svg',
+          imagen: '/img/juegos/todo-el-mundo-miente.svg',
           chip: '🗞️ Descuento'
         },
         {
@@ -110,7 +110,7 @@ export class CatalogoService {
           precio: 14.990,
           descuento: true,
           descuentoTexto: 'Sí, 5%',
-          imagen: 'img/juegos/exit-la-estacion-polar.svg',
+          imagen: '/img/juegos/exit-la-estacion-polar.svg',
           chip: '❄️ Descuento'
         }
       ]
@@ -120,7 +120,7 @@ export class CatalogoService {
       nombre: 'Cooperativos',
       icono: '🤝',
       descripcion: 'Experiencias donde el equipo comparte información, toma decisiones y alcanza un objetivo común. Revisa hasta tres juegos disponibles, cada uno con imagen, descripción breve, precio y estado de descuento.',
-      imagen: 'img/categorias/cooperativos.svg',
+      imagen: '/img/categorias/cooperativos.svg',
       juegos: [
         {
           nombre: 'Pandemic: La Cura',
@@ -128,7 +128,7 @@ export class CatalogoService {
           precio: 33.990,
           descuento: true,
           descuentoTexto: 'Sí, 15%',
-          imagen: 'img/juegos/pandemic-la-cura.svg',
+          imagen: '/img/juegos/pandemic-la-cura.svg',
           chip: '🧪 Descuento'
         },
         {
@@ -137,7 +137,7 @@ export class CatalogoService {
           precio: 39.990,
           descuento: false,
           descuentoTexto: 'No',
-          imagen: 'img/juegos/marvel-united-x-men.svg',
+          imagen: '/img/juegos/marvel-united-x-men.svg',
           chip: '✖️ Precio normal'
         },
         {
@@ -146,7 +146,7 @@ export class CatalogoService {
           precio: 18.990,
           descuento: true,
           descuentoTexto: 'Sí, 7%',
-          imagen: 'img/juegos/codigo-secreto-duo.svg',
+          imagen: '/img/juegos/codigo-secreto-duo.svg',
           chip: '🧩 Descuento'
         }
       ]

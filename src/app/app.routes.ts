@@ -5,6 +5,7 @@ import { Registro } from './pages/registro/registro';
 import { Perfil } from './pages/perfil/perfil';
 import { Recuperar } from './pages/recuperar/recuperar';
 import { Dashboard } from './pages/dashboard/dashboard';
+
 import { authGuard  } from './guards/auth-guard';
 import { adminGuard } from './guards/admin-guard';
 

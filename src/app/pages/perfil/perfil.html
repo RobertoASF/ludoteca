@@ -1,1 +1,199 @@
-<p>perfil works!</p>
+<section class="hero perfil-hero" *ngIf="usuarioActual() as usuario">
+    <div class="contenedor">
+      <div class="miga">
+        <a routerLink="/">Inicio</a>
+        <span>/</span>
+        <span>Mi perfil</span>
+      </div>
+  
+      <div class="perfil-hero-grid">
+        <div>
+          <span class="etiqueta">👤 Área privada</span>
+  
+          <h1>Mi perfil</h1>
+  
+          <p class="bajada">
+            Hola, {{ usuario.nombreCompleto }}. Aquí puedes revisar y actualizar los datos asociados
+            a tu cuenta de Ludoteca Roberto.
+          </p>
+  
+          <div class="acciones">
+            <a class="boton" routerLink="/">Volver a la tienda</a>
+  
+            <a
+              class="boton-secundario"
+              routerLink="/admin/dashboard"
+              *ngIf="esAdmin()">
+              Ir al dashboard
+            </a>
+  
+            <a class="boton-secundario" href="#" (click)="cerrarSesion($event)">
+              Cerrar sesión
+            </a>
+          </div>
+        </div>
+  
+        <aside class="perfil-card">
+          <div class="perfil-avatar">
+            {{ usuario.nombreCompleto.charAt(0) }}
+          </div>
+  
+          <div>
+            <h2>{{ usuario.nombreCompleto }}</h2>
+            <p>{{ usuario.correo }}</p>
+            <span class="perfil-rol">
+              Rol: {{ usuario.rol }}
+            </span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+  
+  <section class="seccion" *ngIf="usuarioActual() as usuario">
+    <div class="contenedor perfil-grid">
+      <article class="panel-info perfil-info">
+        <span class="etiqueta">📌 Resumen de cuenta</span>
+  
+        <h2>Datos actuales</h2>
+  
+        <div class="perfil-datos">
+          <div>
+            <span>Usuario</span>
+            <strong>{{ usuario.usuario }}</strong>
+          </div>
+  
+          <div>
+            <span>Rol</span>
+            <strong>{{ usuario.rol }}</strong>
+          </div>
+  
+          <div>
+            <span>Correo</span>
+            <strong>{{ usuario.correo }}</strong>
+          </div>
+  
+          <div>
+            <span>Fecha nacimiento</span>
+            <strong>{{ usuario.fechaNacimiento }}</strong>
+          </div>
+  
+          <div>
+            <span>Dirección</span>
+            <strong>{{ usuario.calle }} {{ usuario.numero }}, {{ usuario.deptoCasa }}</strong>
+          </div>
+  
+          <div>
+            <span>Comuna / Región</span>
+            <strong>{{ usuario.comuna }}, {{ usuario.region }}</strong>
+          </div>
+        </div>
+      </article>
+  
+      <article class="panel-info perfil-formulario">
+        <span class="etiqueta">✏️ Editar perfil</span>
+  
+        <h2>Actualizar información</h2>
+  
+        <form [formGroup]="form" (ngSubmit)="guardarCambios()" novalidate>
+          <div class="form-grid">
+            <label class="campo">
+              <span>Nombre completo</span>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="nombreCompleto">
+            </label>
+  
+            <label class="campo">
+              <span>Correo electrónico</span>
+              <input
+                class="form-control"
+                type="email"
+                formControlName="correo">
+            </label>
+  
+            <label class="campo">
+              <span>Fecha de nacimiento</span>
+              <input
+                class="form-control"
+                type="date"
+                formControlName="fechaNacimiento">
+            </label>
+  
+            <label class="campo">
+              <span>Calle</span>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="calle">
+            </label>
+  
+            <label class="campo">
+              <span>Número</span>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="numero">
+            </label>
+  
+            <label class="campo">
+              <span>Depto / Casa</span>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="deptoCasa">
+            </label>
+  
+            <label class="campo">
+              <span>Comuna</span>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="comuna">
+            </label>
+  
+            <label class="campo">
+              <span>Región</span>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="region">
+            </label>
+          </div>
+  
+          <p class="mensaje-formulario mensaje-error" *ngIf="mensajeError">
+            {{ mensajeError }}
+          </p>
+  
+          <p class="mensaje-formulario mensaje-ok" *ngIf="mensaje">
+            {{ mensaje }}
+          </p>
+  
+          <div class="acciones">
+            <button class="boton" type="submit">
+              Guardar cambios
+            </button>
+  
+            <a class="boton-secundario" routerLink="/">
+              Cancelar
+            </a>
+          </div>
+        </form>
+      </article>
+    </div>
+  </section>
+  
+  <section class="hero" *ngIf="!usuarioActual()">
+    <div class="contenedor">
+      <span class="etiqueta">Sesión no disponible</span>
+      <h1>No hay usuario activo.</h1>
+      <p class="bajada">
+        Inicia sesión para acceder a tu perfil.
+      </p>
+  
+      <div class="acciones">
+        <a class="boton" routerLink="/">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
