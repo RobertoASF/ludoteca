@@ -1,0 +1,154 @@
+<section class="hero">
+  <div class="contenedor">
+    <div class="miga">
+      <a routerLink="/">Inicio</a>
+      <span>/</span>
+      <a routerLink="/admin/dashboard">Dashboard</a>
+      <span>/</span>
+      <span>Mantenedor de juegos</span>
+    </div>
+
+    <span class="etiqueta">🔥 Firebase REST API</span>
+    <h1>Mantenedor de juegos</h1>
+    <p class="bajada">
+      Desde esta pantalla se consumen datos JSON desde Firebase usando GET, POST, PUT y DELETE.
+    </p>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor">
+    <article class="admin-panel">
+      <h2>{{ editandoId ? 'Editar juego' : 'Crear nuevo juego' }}</h2>
+
+      <form [formGroup]="form" (ngSubmit)="guardar()" class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Categoría</label>
+          <select class="form-control" formControlName="categoriaSlug" [class.is-invalid]="campoInvalido('categoriaSlug')">
+            <option value="">Selecciona</option>
+            <option value="familiares">Familiares</option>
+            <option value="para-dos">Para dos</option>
+            <option value="misterio">Misterio</option>
+            <option value="cooperativos">Cooperativos</option>
+          </select>
+        </div>
+
+        <div class="col-md-8">
+          <label class="form-label">Nombre</label>
+          <input class="form-control" type="text" formControlName="nombre" [class.is-invalid]="campoInvalido('nombre')">
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Descripción</label>
+          <textarea class="form-control" rows="3" formControlName="descripcion" [class.is-invalid]="campoInvalido('descripcion')"></textarea>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Precio</label>
+          <input class="form-control" type="number" formControlName="precio" [class.is-invalid]="campoInvalido('precio')">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Texto descuento</label>
+          <input class="form-control" type="text" formControlName="descuentoTexto" [class.is-invalid]="campoInvalido('descuentoTexto')">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Porcentaje descuento</label>
+          <input class="form-control" type="number" formControlName="porcentajeDescuento">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Imagen</label>
+          <input class="form-control" type="text" formControlName="imagen" [class.is-invalid]="campoInvalido('imagen')">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Chip</label>
+          <input class="form-control" type="text" formControlName="chip" [class.is-invalid]="campoInvalido('chip')">
+        </div>
+
+        <div class="col-12">
+          <label class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="descuento">
+            <span class="form-check-label">Tiene descuento</span>
+          </label>
+        </div>
+
+        <div class="col-12 acciones-formulario">
+          <button class="boton" type="submit">
+            {{ editandoId ? 'Actualizar juego' : 'Crear juego' }}
+          </button>
+
+          <button class="boton-secundario" type="button" *ngIf="editandoId" (click)="cancelarEdicion()">
+            Cancelar edición
+          </button>
+        </div>
+      </form>
+
+      <div class="alert alert-success mt-3" *ngIf="mensaje">
+        {{ mensaje }}
+      </div>
+
+      <div class="alert alert-danger mt-3" *ngIf="error">
+        {{ error }}
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="seccion">
+  <div class="contenedor">
+    <div class="seccion-encabezado">
+      <div>
+        <span class="etiqueta">📦 Datos desde Firebase</span>
+        <h2>Juegos registrados</h2>
+      </div>
+
+      <button class="boton-secundario" type="button" (click)="cargarJuegos()">
+        Recargar GET
+      </button>
+    </div>
+
+    <div class="alert alert-info" *ngIf="cargando">
+      Cargando juegos...
+    </div>
+
+    <div class="admin-tabla" *ngIf="!cargando">
+      <table>
+        <thead>
+          <tr>
+            <th>Juego</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Descuento</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let juego of juegos">
+            <td>
+              <strong>{{ juego.nombre }}</strong>
+              <small>{{ juego.id }}</small>
+            </td>
+
+            <td>{{ juego.categoriaSlug }}</td>
+            <td>{{ formatearCLP(juego.precio) }}</td>
+            <td>{{ juego.descuentoTexto }}</td>
+
+            <td class="acciones-tabla">
+              <button class="btn btn-sm btn-warning" type="button" (click)="editar(juego)">
+                PUT editar
+              </button>
+
+              <button class="btn btn-sm btn-danger" type="button" (click)="eliminar(juego)">
+                DELETE eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
