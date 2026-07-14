@@ -1,124 +1,171 @@
 # Ludoteca Roberto
 
-**Ludoteca Roberto** es un proyecto FrontEnd desarrollado como trabajo  para la asignatura **Desarrollo Full Stack II**, correspondiente a la carrera de **Ingeniería en Desarrollo de Software** de **DUOC UC**.
+**Ludoteca Roberto** es una aplicación FrontEnd desarrollada en Angular para la asignatura **Desarrollo Full Stack II** de **DUOC UC**.
 
-El proyecto consiste en una maqueta web para una PYME ficticia dedicada a la promoción y venta de juegos de mesa. El sitio permite navegar por distintas categorías de juegos, revisar fichas de productos, registrarse como usuario, iniciar sesión, modificar el perfil de usuario y acceder a un panel administrativo simulado mediante roles.
-
-
-## Descripción del proyecto
-
-La aplicación representa el sitio web de **Ludoteca Roberto**, una tienda orientada a la venta de juegos de mesa para distintos tipos de jugadores.
-
-El catálogo está organizado en cuatro categorías principales:
-
-- **Familiares**
-- **Para dos**
-- **Misterio**
-- **Cooperativos**
-
-Cada categoría contiene fichas de juegos con información básica:
-
-- Imagen referencial del juego.
-- Nombre del juego.
-- Descripción breve.
-- Precio de venta.
-- Indicación de descuento.
-
-Además, el sitio incorpora funcionalidades de usuario, como registro, inicio de sesión, recuperación de contraseña, modificación de perfil y acceso a dashboard administrativo.
+La aplicación representa una tienda ficticia de juegos de mesa. Permite navegar por categorías, revisar productos, registrar usuarios, iniciar sesión, modificar perfil, recuperar contraseña y acceder a un panel administrativo con roles diferenciados.
 
 ---
 
 ## Tecnologías utilizadas
 
-El proyecto fue construido utilizando tecnologías FrontEnd tradicionales, sin frameworks de JavaScript como Angular, React o Vue.
+- Angular 22.
+- Bootstrap 5.
+- TypeScript.
+- Reactive Forms.
+- Firebase Realtime Database mediante API REST JSON.
+- Docker para imagen y contenedor.
+- LocalStorage para simulación de sesión y perfiles.
 
-Tecnologías principales:
+---
 
-- **HTML5** para la estructura de las páginas.
-- **CSS3** para estilos personalizados, variables, animaciones y diseño visual.
-- **Bootstrap 5** para apoyar la responsividad, grillas, navbar, modal y componentes visuales.
-- **JavaScript** para validaciones de formularios, simulación de sesión, roles y modificación de perfil.
-- **LocalStorage** para simular persistencia local de sesión y datos de usuarios.
+## Semana 8 - API REST JSON
+
+En esta iteración se incorporó consumo de datos desde **Firebase Realtime Database**. Los juegos se cargan desde el nodo `/juegos` y se manipulan desde una pantalla administrativa protegida.
+
+Ruta del mantenedor:
+
+```text
+/admin/juegos
+```
+
+Operaciones implementadas:
+
+| Método | Funcionalidad |
+| --- | --- |
+| GET | Listar juegos desde Firebase |
+| POST | Crear un nuevo juego |
+| PUT | Actualizar un juego existente |
+| DELETE | Eliminar un juego |
+
+---
+
+## Configuración de Firebase
+
+La URL de Firebase se configura en:
+
+```text
+src/environments/environment.ts
+src/environments/environment.prod.ts
+```
+
+El archivo inicial para importar datos es:
+
+```text
+firebase-seed/juegos.json
+```
+
+Debe importarse dentro del nodo:
+
+```text
+/juegos
+```
 
 ---
 
 ## Funcionalidades principales
 
-### Catálogo de juegos
-
-El sitio cuenta con una página principal donde se muestran las categorías disponibles. Cada categoría enlaza a una página interna con hasta tres juegos de mesa.
-
-### Registro de usuario
-
-La página de registro permite ingresar los siguientes datos:
-
-- Nombre completo.
-- Nombre de usuario.
-- Correo electrónico.
-- Contraseña y repetición de contraseña.
-- Fecha de nacimiento.
-- Dirección de despacho.
-- Calle, número, departamento o casa, comuna y región.
-
-El formulario utiliza validaciones en HTML y JavaScript, marcando visualmente los campos válidos e inválidos.
-
-### Inicio de sesión
-
-El inicio de sesión se presenta mediante un modal de Bootstrap. El usuario puede ingresar con credenciales de prueba para simular el acceso a la aplicación.
-
-### Roles de usuario
-
-El proyecto considera dos tipos de roles:
-
-- **Usuario:** puede iniciar sesión y modificar su perfil.
-- **Admin:** puede iniciar sesión y acceder a un dashboard administrativo.
-
-### Modificación de perfil
-
-La pantalla de perfil permite editar la información del usuario registrado. Esta sección se muestra solamente cuando existe una sesión iniciada.
-
-### Dashboard administrativo
-
-El dashboard es visible solo para usuarios con rol **admin**. Incluye indicadores simulados del sistema, una tabla de actividad y accesos rápidos de administración.
-
-### Recuperación de contraseña
-
-El sitio incorpora una pantalla de recuperación de contraseña mediante correo electrónico, simulando el flujo básico de recuperación de acceso.
+- Página de inicio.
+- Categorías de juegos.
+- Catálogo cargado desde Firebase.
+- Registro de usuarios.
+- Inicio de sesión.
+- Recuperación de contraseña.
+- Modificación de perfil.
+- Roles de usuario y administrador.
+- Dashboard administrativo.
+- Mantenedor CRUD de juegos.
+- Validaciones de formularios.
+- Validaciones de seguridad para contraseña.
 
 ---
 
-## Usuarios de prueba
+## Instalación local
 
-| Rol | Usuario | Contraseña |
-| --- | --- | --- |
-| Usuario | `usuario` | `Usuario1234` |
-| Usuario | `roberto` | `Ludoteca2026` |
-| Administrador | `admin` | `Admin12345` |
+```bash
+npm install
+npm run start
+```
+
+Abrir:
+
+```text
+http://localhost:4200
+```
 
 ---
 
-## Estructura general del proyecto
+## Build de producción
+
+```bash
+npm run build
+```
+
+---
+
+## Docker
+
+Construir imagen:
+
+```bash
+docker build -t ludoteca-roberto:semana8 .
+```
+
+Ejecutar contenedor:
+
+```bash
+docker run -d --name ludoteca-roberto -p 4000:4000 ludoteca-roberto:semana8
+```
+
+Abrir:
+
+```text
+http://localhost:4000
+```
+
+---
+
+## Estructura relevante
 
 ```text
 ludoteca/
-├── index.html
-├── admin/
-│   └── dashboard.html
-├── categorias/
-│   ├── familiares.html
-│   ├── para-dos.html
-│   ├── misterio.html
-│   └── cooperativos.html
-├── cuentas/
-│   ├── registro.html
-│   ├── perfil.html
-│   └── recuperar.html
-├── css/
-│   ├── styles.css
-│   └── auth.css
-├── js/
-│   └── app.js
-└── img/
-    ├── categorias/
-    ├── juegos/
-    └── logo.png
+├── Dockerfile
+├── .dockerignore
+├── firebase-seed/
+│   └── juegos.json
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── guards/
+│   │   ├── layout/
+│   │   ├── models/
+│   │   ├── pages/
+│   │   │   ├── admin-juegos/
+│   │   │   ├── categoria/
+│   │   │   ├── dashboard/
+│   │   │   ├── perfil/
+│   │   │   ├── recuperar/
+│   │   │   └── registro/
+│   │   ├── services/
+│   │   │   ├── auth.ts
+│   │   │   ├── catalogo.ts
+│   │   │   └── juegos-api.ts
+│   │   └── validators/
+│   └── environments/
+└── package.json
+```
+
+---
+
+## Checklist sumativa semana 8
+
+- [x] Aplicación Angular actual.
+- [x] Bootstrap integrado.
+- [x] Login, registro, recuperación y perfil.
+- [x] Roles usuario/admin.
+- [x] Validaciones de formularios.
+- [x] Validaciones de contraseña segura.
+- [x] Consumo de JSON desde Firebase.
+- [x] GET, POST, PUT y DELETE.
+- [x] Dashboard administrativo.
+- [x] Dockerfile para despliegue cloud.
+- [x] Seed JSON para Firebase.
