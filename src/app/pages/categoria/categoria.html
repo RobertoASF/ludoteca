@@ -28,7 +28,7 @@
 
       <div class="hero-stats">
         <div class="stat">
-          <strong>{{ categoria.juegos.length }}</strong>
+          <strong>{{ juegos.length }}</strong>
           <span>Juegos</span>
         </div>
 
@@ -38,8 +38,8 @@
         </div>
 
         <div class="stat">
-          <strong>CLP</strong>
-          <span>Precios</span>
+          <strong>API</strong>
+          <span>Firebase</span>
         </div>
       </div>
     </aside>
@@ -55,12 +55,24 @@
       </div>
 
       <p>
-        Diseño responsivo con Bootstrap y estilos propios para mantener la identidad visual de la tienda.
+        Los productos se cargan desde Firebase Realtime Database mediante una API REST JSON.
       </p>
     </div>
 
-    <div class="juegos-grid row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-      <article class="juego-card card border-0" *ngFor="let juego of categoria.juegos; trackBy: trackByJuego">
+    <div class="alert alert-info" *ngIf="cargando">
+      Cargando juegos desde Firebase...
+    </div>
+
+    <div class="alert alert-danger" *ngIf="error">
+      {{ error }}
+    </div>
+
+    <div class="alert alert-warning" *ngIf="!cargando && !error && juegos.length === 0">
+      No hay juegos disponibles para esta categoría.
+    </div>
+
+    <div class="juegos-grid row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" *ngIf="!cargando && juegos.length > 0">
+      <article class="juego-card card border-0" *ngFor="let juego of juegos; trackBy: trackByJuego">
         <div class="juego-media">
           <img [src]="juego.imagen" [alt]="'Imagen del juego ' + juego.nombre">
           <span class="chip">{{ juego.chip }}</span>
