@@ -59,6 +59,10 @@
             <a class="nav-link" routerLink="/admin/dashboard" routerLinkActive="activo" *ngIf="auth.esAdmin()">
               Dashboard
             </a>
+
+            <a class="nav-link" routerLink="/admin/juegos" routerLinkActive="activo" *ngIf="auth.esAdmin()">
+              Juegos API
+            </a>
   
             <a class="nav-link nav-saludo" routerLink="/perfil" *ngIf="auth.estaLogueado()">
               Hola, {{ auth.sesion()?.usuario }}
