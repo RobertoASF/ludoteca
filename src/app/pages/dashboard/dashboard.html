@@ -14,11 +14,12 @@
 
         <p class="bajada" *ngIf="usuarioActual() as usuario">
           Bienvenido, {{ usuario.nombreCompleto }}. Desde aquí puedes revisar el estado general del catálogo,
-          categorías, descuentos y datos simulados de la tienda.
+          categorías, descuentos y datos cargados desde Firebase.
         </p>
 
         <div class="acciones">
-          <a class="boton" routerLink="/">Ver tienda</a>
+          <a class="boton" routerLink="/admin/juegos">Administrar juegos</a>
+          <a class="boton-secundario" routerLink="/">Ver tienda</a>
 
           <a class="boton-secundario" href="#" (click)="cerrarSesion($event)">
             Cerrar sesión
@@ -43,6 +44,14 @@
 
 <section class="seccion">
   <div class="contenedor">
+    <div class="alert alert-info" *ngIf="cargandoFirebase">
+      Cargando indicadores desde Firebase...
+    </div>
+
+    <div class="alert alert-danger" *ngIf="errorFirebase">
+      {{ errorFirebase }}
+    </div>
+
     <div class="dashboard-kpis">
       <article class="dashboard-card">
         <span class="dashboard-icono">👥</span>
@@ -52,10 +61,10 @@
       </article>
 
       <article class="dashboard-card">
-        <span class="dashboard-icono">🎲</span>
-        <small>Juegos publicados</small>
-        <strong>{{ totalJuegos() }}</strong>
-        <p>Total de juegos disponibles en el catálogo.</p>
+        <span class="dashboard-icono">☁️</span>
+        <small>Juegos en Firebase</small>
+        <strong>{{ totalJuegosFirebase() }}</strong>
+        <p>Total de juegos cargados mediante API REST JSON.</p>
       </article>
 
       <article class="dashboard-card">
@@ -136,7 +145,7 @@
           </div>
 
           <div class="dashboard-precio">
-            <strong>{{ juego.precio }}</strong>
+            <strong>{{ juego.precioFormateado }}</strong>
             <small *ngIf="juego.descuento">Con descuento</small>
             <small *ngIf="!juego.descuento">Precio normal</small>
           </div>
@@ -183,7 +192,7 @@
         <li>Revisar juegos sin descuento y decidir si entran en promoción.</li>
         <li>Actualizar precios antes de publicar nuevas campañas.</li>
         <li>Validar que todas las categorías tengan imágenes y descripciones correctas.</li>
-        <li>Revisar usuarios registrados en LocalStorage durante las pruebas.</li>
+        <li>Usar el mantenedor para demostrar GET, POST, PUT y DELETE contra Firebase.</li>
       </ul>
     </article>
   </div>
